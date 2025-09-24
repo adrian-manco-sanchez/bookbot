@@ -50,3 +50,34 @@ def count_characters(text: str) -> dict:
         result[char] += 1
 
     return result
+
+def sort_character_count(character_count: dict) -> list[dict]:
+    """
+    Sort character count dictionary by count values in descending order.
+    
+    Takes a dictionary mapping characters to their occurrence counts and returns
+    a list of dictionaries, each containing a character and its count, sorted
+    by count in descending order (highest count first).
+    
+    Args:
+        character_count (dict): Dictionary with characters as keys and their 
+                              occurrence counts as values.
+    
+    Returns:
+        list[dict]: List of dictionaries, each with 'char' and 'count' keys,
+                   sorted by count in descending order.
+    
+    Example:
+        >>> char_count = {'a': 5, 'b': 2, 'c': 8}
+        >>> sort_character_count(char_count)
+        [{'char': 'c', 'count': 8}, {'char': 'a', 'count': 5}, {'char': 'b', 'count': 2}]
+    """
+    result = []
+
+    for key,value in character_count.items():
+        result.append({
+            "char": key,
+            "count": value
+        })
+
+    return sorted(result, reverse=True, key=lambda item: item["count"])
