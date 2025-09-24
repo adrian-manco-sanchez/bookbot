@@ -81,3 +81,14 @@ def sort_character_count(character_count: dict) -> list[dict]:
         })
 
     return sorted(result, reverse=True, key=lambda item: item["count"])
+
+def generate_report(filepath: str, word_count: int, sorted_character_count: dict) -> None:
+    print("============ BOOKBOT ============")
+    print(f"Analyzing book found at {filepath}...")
+    print("----------- Word Count ----------")
+    print(f"Found {word_count} total words")
+    print("--------- Character Count -------")
+    for item in sorted_character_count:
+        if str(item["char"]).isalpha():
+            print(f"{item["char"]}: {item["count"]}")
+    print("============= END ===============")
